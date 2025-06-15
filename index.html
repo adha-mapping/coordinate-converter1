@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coordinate Converter</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <h1>Coordinate Converter</h1>
+    <label for="system">Select 2D Coordinate System:</label>
+    <select id="system">
+      <option value="utm">UTM</option>
+      <option value="rso">RSO</option>
+      <option value="cassini">Cassini-Soldner</option>
+    </select>
+
+    <label for="target">Select 3D Target System:</label>
+    <select id="target">
+      <option value="wgs84">WGS84</option>
+      <option value="gdm2000">GDM2000</option>
+    </select>
+
+    <input type="number" id="x" placeholder="X (Easting)" />
+    <input type="number" id="y" placeholder="Y (Northing)" />
+    <input type="number" id="z" placeholder="Height (Z)" />
+
+    <button onclick="convert()">Convert</button>
+
+    <div id="output">
+      <p>Latitude: <span id="lat"></span></p>
+      <p>Longitude: <span id="lon"></span></p>
+      <p>Ellipsoidal Height: <span id="ellipHeight"></span></p>
+    </div>
+
+    <button onclick="exportCSV()">Export to CSV</button>
+
+    <div id="mapPreview">
+      <iframe src="https://maps.google.com/maps?q=0,0&z=15&output=embed" id="mapFrame"></iframe>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
